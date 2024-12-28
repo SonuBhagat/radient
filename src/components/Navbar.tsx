@@ -1,21 +1,21 @@
-import React, { useState } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react'; 
-import { NavLink } from '../types';
+import React, { useState } from "react";
+import { Menu, X, ChevronDown } from "lucide-react";
+import { NavLink } from "../types";
 
 const navigation: NavLink[] = [
-  { title: 'Home', path: '/' },
+  { title: "Home", path: "/" },
   {
-    title: 'Services',
-    path: '',
+    title: "Services",
+    path: "",
     subLinks: [
-      { title: 'Power Solutions', path: '/services/power-solutions' },
-      { title: 'Solar EPC Solutions', path: '/services/solar-epc' },
-      { title: 'Electrical EPC Solutions', path: '/services/electrical-epc' },
-      { title: 'Energy Efficient Lighting', path: '/services/energy-lighting' },
+      { title: "Power Solutions", path: "/services/power-solutions" },
+      { title: "Solar EPC Solutions", path: "/services/solar-epc" },
+      { title: "Electrical EPC Solutions", path: "/services/electrical-epc" },
+      { title: "Energy Efficient Lighting", path: "/services/energy-lighting" },
     ],
   },
-  { title: 'About', path: '/about' },
-  { title: 'Contact', path: '/contact' },
+  { title: "About", path: "/about" },
+  { title: "Contact", path: "/contact" },
 ];
 
 export default function Navbar() {
@@ -25,14 +25,14 @@ export default function Navbar() {
   let hideTimeout: NodeJS.Timeout;
 
   const handleMouseEnter = (title: string) => {
-    clearTimeout(hideTimeout); 
+    clearTimeout(hideTimeout);
     setActiveDropdown(title);
   };
 
   const handleMouseLeave = () => {
     hideTimeout = setTimeout(() => {
       setActiveDropdown(null);
-    }, 500); 
+    }, 500);
   };
 
   return (
@@ -44,7 +44,7 @@ export default function Navbar() {
               <img
                 src="/logo.png"
                 alt="Radient Power"
-                style={{ height: '60px', width: 'auto' }}
+                style={{ height: "60px", width: "auto" }}
               />
             </a>
           </div>
@@ -61,10 +61,10 @@ export default function Navbar() {
                 <a
                   href={item.path}
                   onClick={(e) => {
-                    if (item.subLinks) e.preventDefault(); 
+                    if (item.subLinks) e.preventDefault();
                   }}
                   className={`flex items-center text-gray-600 hover:text-blue-950 px-3 py-2 text-sm font-medium ${
-                    item.subLinks ? 'cursor-default' : ''
+                    item.subLinks ? "cursor-default" : ""
                   }`}
                 >
                   {item.title}
@@ -97,7 +97,11 @@ export default function Navbar() {
               onClick={() => setIsOpen(!isOpen)}
               className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100"
             >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
             </button>
           </div>
         </div>
@@ -112,7 +116,7 @@ export default function Navbar() {
                 <a
                   href={item.path}
                   onClick={(e) => {
-                    if (item.subLinks) e.preventDefault(); 
+                    if (item.subLinks) e.preventDefault();
                   }}
                   className="flex items-center px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
                 >
